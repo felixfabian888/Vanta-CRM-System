@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class LoginBackground extends StatelessWidget {
   final bool isWeb;
-
   const LoginBackground({super.key, required this.isWeb});
 
   @override
@@ -14,32 +13,26 @@ class LoginBackground extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color(0xFFD6D6D6),
-            Color(0xFFF5F5F5),
-            Color(0xFFFFFFFF),
-            Color(0xFFE8E8E8),
+            Color(0xFFF9FAFB), // Background: Off-White
+            Color(0xFFFFFFFF), // Pure White
+            Color(0xFFF3F4F6), // Light Grey
           ],
-          stops: [0.0, 0.4, 0.7, 1.0],
+          stops: [0.0, 0.5, 1.0],
         ),
       ),
       child: Stack(
         children: [
+          // Subtle decorative circles
           Positioned(
             top: isWeb ? -100 : -80,
             left: isWeb ? 100 : -80,
-            child: _blurredCircle(250, const Color(0xFFBDBDBD)),
+            child: _blurredCircle(250, const Color(0xFFE5E7EB)),
           ),
           Positioned(
             bottom: isWeb ? -120 : -100,
             right: isWeb ? 150 : -60,
-            child: _blurredCircle(300, const Color(0xFFE0E0E0)),
+            child: _blurredCircle(300, const Color(0xFFF3F4F6)),
           ),
-          if (isWeb)
-            Positioned(
-              top: 200,
-              right: 300,
-              child: _blurredCircle(180, const Color(0xFF9E9E9E)),
-            ),
         ],
       ),
     );
@@ -48,12 +41,12 @@ class LoginBackground extends StatelessWidget {
   Widget _blurredCircle(double size, Color color) {
     return ClipOval(
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 60, sigmaY: 60),
+        filter: ImageFilter.blur(sigmaX: 80, sigmaY: 80),
         child: Container(
           width: size,
           height: size,
           decoration: BoxDecoration(
-            color: color.withOpacity(0.5),
+            color: color.withOpacity(0.6),
             shape: BoxShape.circle,
           ),
         ),

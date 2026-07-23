@@ -146,7 +146,8 @@ class _MainHomeState extends State<MainHome> {
             child: Container(
               height: 40,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.5),
+                color:
+                    const Color.fromARGB(255, 130, 128, 128).withOpacity(0.5),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: Colors.white.withOpacity(0.6),

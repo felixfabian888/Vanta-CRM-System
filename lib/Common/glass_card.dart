@@ -10,7 +10,7 @@ class GlassCard extends StatelessWidget {
     super.key,
     required this.padding,
     required this.child,
-    this.borderRadius = 24,
+    this.borderRadius = 16, // Slightly tighter radius for a cleaner look
   });
 
   @override
@@ -18,26 +18,23 @@ class GlassCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(borderRadius),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+        filter: ImageFilter.blur(
+            sigmaX: 8, sigmaY: 8), // Reduced blur for cleaner look
         child: Container(
           padding: padding,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.white.withOpacity(0.4),
-                Colors.white.withOpacity(0.2),
-              ],
-            ),
+            color: Colors.white.withOpacity(0.7), // Much cleaner, less "blurry"
             borderRadius: BorderRadius.circular(borderRadius),
-            border:
-                Border.all(color: Colors.white.withOpacity(0.6), width: 1.5),
+            border: Border.all(
+              color: const Color(0xFFE5E7EB), // Very subtle light grey border
+              width: 1,
+            ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.12),
-                blurRadius: 30,
-                offset: const Offset(0, 15),
+                color: const Color(0xFF111827)
+                    .withOpacity(0.04), // Very faint shadow
+                blurRadius: 10,
+                offset: const Offset(0, 4),
               ),
             ],
           ),
