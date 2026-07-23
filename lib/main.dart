@@ -1,4 +1,5 @@
 import 'package:crm_system/Pages/LoginPage.dart';
+import 'package:crm_system/Pages/MainHome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,6 +15,11 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
       debugShowCheckedModeBanner: false,
       title: "Vanta CRM System",
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/home': (context) => const MainHome(), // ✅ Make sure this exists
+      },
     );
   }
 }
